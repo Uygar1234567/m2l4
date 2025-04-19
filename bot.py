@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 from config import token
 from logic import *
+
+
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -30,5 +32,19 @@ async def start(ctx, *, text: str):
     TextAnalysis(text, ctx.author.name)
     view = PersistentView(ctx.author.name)
     await ctx.send("Mesajını aldım! Bununla ne yapmak istiyorsun?", view=view)
+
+#@bot.command(name="adinne?")
+#async def adin_ne(ctx):
+    #await ctx.send("ben süper havalı bir botum ve amacım size yardım etmek!")
+
+#@bot.command(name="kacyasindasin?")
+#async def kac_yasindasin(ctx):
+    #await ctx.send("bu çok felsefi bir soru...")
+
+
+@bot.command(name="kapat")
+async def stop(ctx):
+    await ctx.send("gg.")
+    await bot.close()
 
 bot.run(token)

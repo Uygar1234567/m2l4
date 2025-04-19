@@ -27,7 +27,7 @@ class TextAnalysis():
     def __translate(self, text, from_lang, to_lang):
         try:
             # Görev #4
-            translator= Translator(çevirmek_istediğimiz_dil=from_lang, çevireceğimiz_dil=to_lang)
+            translator= Translator(from_lang=from_lang, to_lang=to_lang)
             translation=translator.translate(text)
             return translation
         except:
